@@ -11,13 +11,9 @@ cp -R /keystore $datadir
 prepareDatadir $datadir $etherbase
 
 geth --datadir $datadir \
-     --etherbase $etherbase \
-     --networkid "18021982" \
-     --gasprice "1" \
-     --targetgaslimit "0x59a5380" \
      --rpc --rpcaddr '0.0.0.0' --rpcport 8545 --rpccorsdomain '*' --rpcapi 'admin,db,eth,miner,net,web3,personal,txpool' \
-     --ws --wsaddr '0.0.0.0' --wsport 8546 --wsorigins '*' \
      --bootnodes "enode://f94118749beb981da38b82ab6be7b00dc0082783d698080fd0ae45a2c3d42f1ce74cbb153ffcfb1379b64235605bfff43f85b112032ddd9685ad2ab88735e1b1@${bootnode}:30301" \
      --unlock $addresses \
+     --allow-insecure-unlock \
      --password "/dev/null" \
      --verbosity 3
